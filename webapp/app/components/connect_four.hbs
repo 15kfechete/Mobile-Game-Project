@@ -1,0 +1,32 @@
+{{#if playing}} {{!-- If statement for when a game is active --}}
+
+{{#if winner}} {{!-- {{If statement for if the player has won the game}} --}}
+<div>
+    The {{winner}} Player WON!
+</div>
+<div class="float-right"> <button class="btn" {{action 'save-highscore'}}>Save
+        Highscore</button></div>
+
+{{!-- {{If statement for Player to enter their name into the system. --}}
+<div class="float-left">{{input value=player_name placeholder='Enter Your Name'}}</div>
+{{/if}}
+{{!-- {{If statement for if there was a DRAW when playing the game} --}}
+{{#if draw}}
+<div>It's a DRAW!</div>
+{{/if}}
+
+{{!-- {{If statement in relation to the UI interface components of the game}} --}}
+{{#if displayScreen}}
+<button class="float-right btn" {{action 'start'}}>RESTART</button>
+{{!-- {{If statement for if the player wishes to RESTART the game}} --}}
+{{/if}}
+
+{{else}}
+<button class="btn" {{action 'start'}}>START</button>
+{{!-- {{If statement for if the player wishes to START the game}} --}}
+{{#if displayScreen}}
+{{/if}}
+{{/if}}
+
+{{!-- {{This is the Canvas/Display of the the web application.}} --}}
+<canvas id="stage" width="380" height="380"></canvas>
